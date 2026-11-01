@@ -5,6 +5,7 @@
 """
 from __future__ import annotations
 
+import calendar
 import hashlib
 import json
 import re
@@ -54,7 +55,8 @@ def _item_id(*parts: str) -> str:
 def _iso(struct) -> str:
     if not struct:
         return ""
-    return datetime.fromtimestamp(time.mktime(struct), tz=timezone.utc).isoformat(timespec="seconds")
+    # feedparser returns UTC struct_time values; mktime would interpret them as local time.
+    return datetime.fromtimestamp(calendar.timegm(struct), tz=timezone.utc).isoformat(timespec="seconds")
 
 
 def _text(html: str, n: int = 600) -> str:
