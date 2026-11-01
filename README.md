@@ -17,7 +17,7 @@ RoboRadar is a locally hosted robotics intelligence tool with a web UI. Every da
 | OS | Linux (tested on Ubuntu 24.04). macOS works, but you need to set up autostart yourself. On Windows it can only be started manually |
 | Python | 3.10+ (3.12 recommended) |
 | Network | Access to arxiv.org, youtube.com and github.com. If these are blocked, use a system proxy or TUN mode, or set an HTTP proxy in Settings |
-| Summarization model (pick one) | ① A locally logged-in Claude Code (`claude` command, default); ② an Anthropic API key; ③ an OpenAI-compatible API key (DeepSeek, Qwen, Kimi, …); ④ no LLM (rule-based extraction only, no summaries) |
+| Summarization model (pick one) | ① A locally logged-in Claude Code (`claude` command, default); ② an Anthropic API key; ③ an OpenAI-compatible endpoint (DeepSeek, Qwen, Kimi, Ollama, …); ④ no LLM (rule-based extraction only, no summaries) |
 
 ### 1. Get the code
 
@@ -78,6 +78,8 @@ Choose **Anthropic API** in Settings and enter your API key, or set the `ANTHROP
 **③ OpenAI-compatible API (DeepSeek / Qwen / Kimi, …)**
 
 Enter the base URL, model name and key in Settings. For DeepSeek, for example: `https://api.deepseek.com` with model `deepseek-chat`.
+
+For a local OpenAI-compatible server without authentication, such as Ollama, LM Studio or vLLM, leave the API key empty. With Ollama, use `http://localhost:11434/v1` as the base URL and enter the name of a model already available in Ollama. Cloud providers still require their API key.
 
 **④ No LLM**
 

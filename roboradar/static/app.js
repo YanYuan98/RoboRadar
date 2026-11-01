@@ -523,7 +523,7 @@ views.settings = async () => {
     <div class="form-row"><label>后端</label><select id="l-backend">
       <option value="claude_cli">本机 Claude Code（claude 命令，无需 API Key）</option>
       <option value="anthropic">Anthropic API（Claude）</option>
-      <option value="openai">OpenAI 兼容接口（DeepSeek / Qwen / Kimi / OpenAI 等）</option>
+      <option value="openai">OpenAI 兼容接口（DeepSeek / Qwen / Ollama 等）</option>
       <option value="none">不使用 LLM（仅规则提取，无中文总结）</option></select></div>
     <div class="l-sec" data-b="claude_cli"><div class="form-row"><label>模型</label><div><input type="text" id="l-cli-model" value="${esc(L.claude_cli_model)}"><span class="hint"> sonnet / opus / haiku 或完整模型 ID</span></div></div></div>
     <div class="l-sec" data-b="anthropic">
@@ -532,7 +532,7 @@ views.settings = async () => {
     <div class="l-sec" data-b="openai">
       <div class="form-row"><label>Base URL</label><input type="text" id="l-o-url" value="${esc(L.openai_base_url)}"></div>
       <div class="form-row"><label>模型</label><input type="text" id="l-o-model" value="${esc(L.openai_model)}"></div>
-      <div class="form-row"><label>API Key</label><input type="password" id="l-o-key" value="${esc(L.openai_api_key)}" style="width:100%"></div></div>
+      <div class="form-row"><label>API Key</label><input type="password" id="l-o-key" value="${esc(L.openai_api_key)}" style="width:100%" placeholder="云端服务必填；本地无鉴权服务可留空"></div></div>
     <div class="form-row"><label>并发数</label><input type="number" id="l-conc" value="${L.concurrency}" min="1" max="16"></div>
     <div class="form-row"><label></label><div><button id="l-test">🔌 测试连接</button> <span id="l-res" class="hint"></span></div></div>
   </div>

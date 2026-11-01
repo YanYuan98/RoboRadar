@@ -95,9 +95,9 @@ class OpenAICompat:
     def __init__(self, cfg: dict):
         from openai import OpenAI
 
-        if not cfg.get("openai_api_key"):
-            raise LLMUnavailable("未设置 OpenAI 兼容接口的 API Key")
-        self.client = OpenAI(base_url=cfg.get("openai_base_url") or None, api_key=cfg["openai_api_key"],
+        # The SDK requires a non-empty key, but local OpenAI-compatible servers often do not.
+        api_key = cfg.get("openai_api_key") or "not-needed"
+        self.client = OpenAI(base_url=cfg.get("openai_base_url") or None, api_key=api_key,
                              timeout=cfg.get("timeout", 180))
         self.model = cfg.get("openai_model")
 

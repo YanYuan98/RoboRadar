@@ -15,7 +15,7 @@ RoboRadar 是一个本地运行、带网页界面的机器人领域情报工具�
 | 操作系统 | Linux（已在 Ubuntu 24.04 上测试）。macOS 可以运行，但开机自启要自己配置；Windows 只能手动启动 |
 | Python | 3.10 及以上（推荐 3.12） |
 | 网络 | 能访问 arxiv.org、youtube.com、github.com。国内网络一般需要代理，可以用系统代理、TUN 模式，或在设置里填 HTTP 代理 |
-| 总结模型（四选一） | ① 本机已登录的 Claude Code（`claude` 命令，默认）；② Anthropic API Key；③ OpenAI 兼容接口（DeepSeek、Qwen、Kimi 等）的 Key；④ 不使用 LLM（只做规则提取，没有中文总结） |
+| 总结模型（四选一） | ① 本机已登录的 Claude Code（`claude` 命令，默认）；② Anthropic API Key；③ OpenAI 兼容接口（DeepSeek、Qwen、Kimi、Ollama 等）；④ 不使用 LLM（只做规则提取，没有中文总结） |
 
 ### 1. 获取代码
 
@@ -76,6 +76,8 @@ claude -p "回复 OK"        # 能输出内容就说明可用
 **③ OpenAI 兼容接口（DeepSeek / Qwen / Kimi 等）**
 
 在设置页填 Base URL、模型名和 Key。以 DeepSeek 为例：`https://api.deepseek.com`，模型 `deepseek-chat`。
+
+对于 Ollama、LM Studio、vLLM 等不需要鉴权的本地 OpenAI 兼容服务，API Key 可以留空。以 Ollama 为例，Base URL 填 `http://localhost:11434/v1`，模型名填写已经在 Ollama 中准备好的模型；云端服务仍需填写对应的 API Key。
 
 **④ 不使用 LLM**
 
